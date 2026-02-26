@@ -1,0 +1,35 @@
+name: Simple CI/CD Pipeline
+
+# This workflow runs automatically every time you push code to GitHub.
+# It makes sure your code is working properly by building it.
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Check Code
+    # This tells GitHub to run this on a freshly installed Ubuntu computer
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Get your code from GitHub
+      - name: Get Code
+        uses: actions/checkout@v4
+
+      # Step 2: Install Node.js (which runs React/Vite)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Step 3: Install all your project packages (npm install)
+      - name: Install Packages
+        run: npm install
+
+      # Step 4: Check if the application builds successfully without errors
+      - name: Build Project
+        run: npm run build
