@@ -46,8 +46,9 @@ const Header = () => {
               ))}
             </div>
             <a
-              href="/Naitik_Resume.pdf"
-              download="Naitik_Resume.pdf"
+              href="/images/Naitik_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative overflow-hidden cursor-pointer w-fit py-1.5 sm:py-2 px-4 sm:px-5 border border-primary rounded-full group"
             >
               <span className="relative z-10 text-sm font-medium text-black group-hover:text-white transition-colors duration-300">
