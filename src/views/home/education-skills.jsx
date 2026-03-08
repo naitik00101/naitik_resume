@@ -2,83 +2,70 @@ import { educationData } from "../../models/pageData.js";
 
 const EducationSkills = () => {
   return (
-    <section>
-      <div className="border-t border-muted overflow-hidden">
-        <div className="container relative z-10">
-          <img
-            src="/images/home/education-skill/edu-skill-vector.svg"
-            alt="vector"
-            width={260}
-            height={170}
-            className="no-print absolute top-0 left-0 transform -translate-y-1/2"
-          />
-          <div className="relative z-10 py-16 md:py-32">
-            <div className="flex items-center justify-between gap-2 border-b border-black pb-7 mb-9 xl:mb-16">
-              <h2>Education &amp; Skills</h2>
-              <p className="text-xl text-primary">( 03 )</p>
+    <section className="section bg-white">
+      <div className="container">
+        <div className="flex flex-col gap-12 md:gap-20">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-black/10 pb-8">
+            <div className="flex flex-col gap-3">
+              <span className="text-primary font-medium tracking-wider uppercase text-sm">Background</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">Education & Skills</h2>
+            </div>
+            <p className="text-xl text-primary font-medium">( 03 )</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+            {/* Education */}
+            <div className="flex flex-col gap-8">
+              {educationData?.education?.map((value, index) => (
+                <div key={index} className="flex items-start gap-6 group">
+                  <div className="no-print mt-2 w-4 h-4 rounded-full border-2 border-primary bg-white flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:bg-white"></div>
+                  </div>
+                  <div className="flex-1 flex flex-col gap-2">
+                    <h5 className="text-xl font-bold text-slate-900">{value?.title}</h5>
+                    <p className="text-muted-foreground leading-relaxed">{value?.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="flex flex-col gap-10 xl:gap-16">
-              {/* Education */}
-              <div className="flex flex-col gap-6 xl:gap-8 max-w-2xl">
-                {educationData?.education?.map((value, index) => (
-                  <div key={index} className="flex items-start gap-6">
-                    <div className="no-print mt-2.5 w-3.5 h-3.5 rounded-full border-1 bg-white flex items-center justify-center border-black shrink-0">
-                      <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
+            {/* Skills */}
+            <div className="flex flex-col gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {educationData?.skills?.map((value, index) => (
+                  <div
+                    key={index}
+                    className="p-5 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col gap-4 items-center justify-center hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group"
+                  >
+                    <div className="w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                      <img
+                        src={value?.icon}
+                        alt={value?.name}
+                        width={48}
+                        height={48}
+                        className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                        onError={(e) => {
+                          e.target.src = "https://placehold.co/48x48/f0f0f0/666666?text=" + value.name[0];
+                        }}
+                      />
                     </div>
-                    <div className="flex-1 flex flex-col gap-2">
-                      <h5>{value?.title}</h5>
-                      <p className="font-normal">{value?.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Skills — horizontal scrollable row */}
-              <div className="w-full overflow-x-auto pb-4">
-                <div className="flex flex-row gap-4 xl:gap-5 min-w-max">
-                  {educationData?.skills?.map((value, index) => (
-                    <div
-                      key={index}
-                      className="p-4 xl:p-5 border border-muted rounded-lg flex flex-col gap-4 items-center justify-between hover:border-primary hover:shadow-md transition-all duration-300"
-                      style={{ minWidth: "110px", maxWidth: "130px" }}
-                    >
-                      <div className="flex flex-col items-center gap-2">
-                        <div className="w-[52px] h-[52px] flex items-center justify-center">
-                          <img
-                            src={value?.icon}
-                            alt={value?.name}
-                            width={52}
-                            height={52}
-                            className="object-contain"
-                          />
-                        </div>
-                        <p className="text-black font-medium text-center text-xs leading-tight">
-                          {value?.name}
-                        </p>
-                      </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <p className="text-slate-900 font-bold text-sm text-center">
+                        {value?.name}
+                      </p>
                       <div className="flex gap-1">
                         {[...Array(5)].map((_, i) => (
-                          <svg
+                          <div
                             key={i}
-                            width="8"
-                            height="8"
-                            viewBox="0 0 9 9"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <rect
-                              width="9"
-                              height="9"
-                              rx="4.5"
-                              fill={i < value?.rating ? "#FE4300" : "#C0D8E0"}
-                            />
-                          </svg>
+                            className={`w-1.5 h-1.5 rounded-full ${
+                              i < value?.rating ? "bg-primary" : "bg-slate-200"
+                            }`}
+                          />
                         ))}
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

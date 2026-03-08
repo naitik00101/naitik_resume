@@ -7,6 +7,7 @@ const ExperienceSec = () => {
       tech: ["Node.js", "Express", "MongoDB", "JWT", "React", "Render"],
       description:
         "MERN-based e-commerce application with JWT authentication and RBAC. REST APIs for products, cart, and orders. MongoDB schema design with protected routes and password hashing. Deployed on Vercel (frontend) and Render (backend).",
+      link: "https://luxegear-vip.vercel.app",
     },
     {
       period: "09/2025 – 10/2025",
@@ -27,15 +28,14 @@ const ExperienceSec = () => {
   ];
 
   return (
-    <section>
-      <div className="py-16 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between gap-2 border-b border-black pb-7 mb-9 md:mb-16">
-            <h2>Projects</h2>
-            <p className="text-xl text-primary">( 02 )</p>
+    <section className="section bg-slate-50/50">
+      <div className="container">
+        <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-3 border-b border-black/10 pb-8">
+            <span className="text-primary font-medium tracking-wider uppercase text-sm">Experience</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">Work History</h2>
           </div>
-
-          <div className="space-y-7 md:space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
             {projects.map((proj, index) => (
               <div
                 key={index}
@@ -84,7 +84,19 @@ const ExperienceSec = () => {
 
                 {/* Right: Description */}
                 <div className="pl-8 sm:pl-0">
-                  <p className="leading-relaxed text-base">{proj.description}</p>
+                  <div className="flex flex-col gap-4">
+                    <p className="leading-relaxed text-base">{proj.description}</p>
+                    {proj.link && (
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-primary rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all w-fit"
+                      >
+                        Open Website ↗
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
