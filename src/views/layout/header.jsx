@@ -3,10 +3,6 @@ import Logo from "./logo.jsx";
 import { contactBar } from "../../models/pageData.js";
 
 const Header = () => {
-  const handleDownloadPDF = () => {
-    window.print();
-  };
-
   return (
     <header className="navbar top-0 left-0 z-[999] w-full fixed bg-white/90 backdrop-blur-sm border-b border-muted shadow-sm">
       <div className="container">
@@ -49,15 +45,15 @@ const Header = () => {
                 </a>
               ))}
             </div>
-            <Button
-              variant="outline"
-              onClick={handleDownloadPDF}
+            <a
+              href="/Naitik_Resume.pdf"
+              download="Naitik_Resume.pdf"
               className="relative overflow-hidden cursor-pointer w-fit py-1.5 sm:py-2 px-4 sm:px-5 border border-primary rounded-full group"
             >
               <span className="relative z-10 text-sm font-medium text-black group-hover:text-white transition-colors duration-300">
                 Download CV
               </span>
-            </Button>
+            </a>
           </div>
         </div>
       </div>
