@@ -18,14 +18,11 @@ const HeroSection = () => {
               className="flex flex-col gap-4"
             >
               <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-3xl md:text-4xl">👋</span>
-                  <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">I'm Naitik</span>
-                </div>
-                <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs md:text-sm">Backend Engineer</span>
+                
+               
               </div>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 leading-[0.95] md:leading-[1.05]">
-                Crafting <span className="text-primary">Scalable</span> <br className="hidden md:block" /> Digital Core.
+                👋 <span className="text-primary">I'm Naitik</span> <br className="hidden md:block" />Backend Engineer .
               </h1>
             </motion.div>
 
