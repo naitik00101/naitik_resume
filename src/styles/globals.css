@@ -27,6 +27,9 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
@@ -167,18 +170,21 @@ button:hover {
 @layer base {
   h1 {
     @apply text-4xl md:text-5xl xl:text-7xl 2xl:text-[85px] font-semibold;
+    font-family: 'Bricolage Grotesque', sans-serif;
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
 
   h2 {
     @apply text-3xl md:text-5xl lg:text-6xl xl:text-[65px] font-semibold;
+    font-family: 'Bricolage Grotesque', sans-serif;
     line-height: 1.15;
     letter-spacing: -0.015em;
   }
 
   h3 {
     @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold;
+    font-family: 'Bricolage Grotesque', sans-serif;
     line-height: 1.2;
     letter-spacing: -0.01em;
   }
